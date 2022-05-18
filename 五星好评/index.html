@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 400px;
+      height: 50px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .box span {
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      margin: 5px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .box span img {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+    }
+
+    .box .text {
+      font-size: 22px;
+      width: 100px;
+      line-height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <span>
+      <img class="img1" src="./1.png">
+      <img class="img2" src="./2.png">
+    </span>
+    <span>
+      <img class="img1" src="./1.png">
+      <img class="img2" src="./2.png">
+    </span>
+    <span>
+      <img class="img1" src="./1.png">
+      <img class="img2" src="./2.png">
+    </span>
+    <span>
+      <img class="img1" src="./1.png">
+      <img class="img2" src="./2.png">
+    </span>
+    <span>
+      <img class="img1" src="./1.png">
+      <img class="img2" src="./2.png">
+    </span>
+    <div id="text" class="text"> 请评价</div>
+  </div>
+
+  <script src="./jQuery.min.js"></script>
+  <script>
+    let txt = ['非常差', '一般', '不错', '很好', '非常棒'];
+    $('.box span').click(function () {
+      $(this).find('.img2').css('display', 'none');
+      $(this).prevAll().find('.img2').css('display', 'none');
+      $(this).nextAll().find('.img2').css('display', 'block');
+      $('.box #text').html(txt[$(this).index()]);
+    })
+
+  </script>
+</body>
+
+</html>
